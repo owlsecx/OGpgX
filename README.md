@@ -18,7 +18,7 @@
 
 ## 📌 Overview
 
-Offline GnuPG / OpenPGP keyring & configuration auditor
+OGpgX — Offline GnuPG / OpenPGP Keyring Auditor. It provides tolerant parser for gpg.conf, gpg-agent.conf and dirmngr.conf (comments, quoting, no-* negations); Crypto preference auditor — SHA1/MD5/RIPEMD160, 3DES/CAST5/IDEA/Blowfish, weak S2K, MDC overrides. Built-in demo/self-test paths and severity gates help validate detections without touching production when those flags are used.
 
 ---
 
@@ -30,14 +30,6 @@ Offline GnuPG / OpenPGP keyring & configuration auditor
 - Privacy checks — auto-key-retrieve, cleartext hkp://, honor-keyserver-url, emitted version strings
 - gpg-agent cache TTL, loopback / preset passphrase, passphrase-constraint policy review
 - Colon-listing parser (gpg --with-colons) — weak key sizes, DSA/Elgamal, expired/revoked-yet-trusted keys, misplaced ultimate trust, v3 keys, SHA1 self-sigs
-- ASCII-armor reader with CRC24 verification and a read-only OpenPGP packet walker (version, algo, creation, key-id, fingerprint, signature subpackets) — never decrypts anything
-- --homedir tree scan — permissions on homedir, private-keys-v1.d, secring.gpg, unprotected key files, revocation certificates, ownership
-- Optional read-only live listing (gpg --list-keys)
-- CWE + MITRE ATT&CK mapping, severity, remediation
-- Hardened configuration template generator
-- Export TXT / Markdown / JSON / CSV / SARIF 2.1.0
-- Built-in --demo self-test with temp homedir
-- Full CLI mode (--homedir, --conf, --listing, ...)
 
 ---
 
@@ -51,7 +43,10 @@ Offline GnuPG / OpenPGP keyring & configuration auditor
 ## 🚀 Usage
 
 ```bash
-./OGpgX
+./OGpgX                                     # interactive menu
+./OGpgX --scan
+./OGpgX --demo
+./OGpgX --help
 ```
 
 ---
